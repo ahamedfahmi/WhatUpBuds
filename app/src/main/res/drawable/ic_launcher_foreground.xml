@@ -1,0 +1,80 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Original launcher artwork inspired by a simple earbuds-in-case icon.
+         Kept as vector so it scales cleanly and avoids third-party icon licenses. -->
+
+    <!-- Open lid -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M34,22C27.4,22 22,27.4 22,34L22,45C22,51.6 27.4,57 34,57L74,57C80.6,57 86,51.6 86,45L86,34C86,27.4 80.6,22 74,22L34,22ZM36,29L72,29C76.4,29 80,32.6 80,37L80,43C80,47.4 76.4,51 72,51L36,51C31.6,51 28,47.4 28,43L28,37C28,32.6 31.6,29 36,29Z" />
+
+    <!-- Case bowl -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M21,51C21,43.8 26.8,38 34,38L74,38C81.2,38 87,43.8 87,51L87,69C87,78.4 79.4,86 70,86L38,86C28.6,86 21,78.4 21,69L21,51Z" />
+
+    <!-- Inner black opening of the case -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M26,52C26,47.6 29.6,44 34,44L74,44C78.4,44 82,47.6 82,52C82,56.4 78.4,60 74,60L34,60C29.6,60 26,56.4 26,52Z" />
+
+    <!-- Left earbud outer shell -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M39,37C32.4,37 27,42.4 27,49C27,55.6 32.4,61 39,61L48,61L52,49.8C52.5,48.4 52.3,46.8 51.4,45.6L47.1,39.8C45.2,38 42.6,37 39,37Z" />
+
+    <!-- Right earbud outer shell -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M69,37C75.6,37 81,42.4 81,49C81,55.6 75.6,61 69,61L60,61L56,49.8C55.5,48.4 55.7,46.8 56.6,45.6L60.9,39.8C62.8,38 65.4,37 69,37Z" />
+
+    <!-- Side shine / tips -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M27,49C21.5,49 17,53.5 17,59C17,64.5 21.5,69 27,69L34,69C28.4,65.1 25,59.6 25,53.5C25,52 25.8,50.4 27,49Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M81,49C86.5,49 91,53.5 91,59C91,64.5 86.5,69 81,69L74,69C79.6,65.1 83,59.6 83,53.5C83,52 82.2,50.4 81,49Z" />
+
+    <!-- Case lip -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M31,58L77,58C78.7,58 80,59.3 80,61C80,62.7 78.7,64 77,64L31,64C29.3,64 28,62.7 28,61C28,59.3 29.3,58 31,58Z" />
+
+    <!-- Earbud split lines -->
+    <path
+        android:strokeColor="#FF000000"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M49,48L44,61" />
+    <path
+        android:strokeColor="#FF000000"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M59,48L64,61" />
+
+    <!-- Small speaker slits -->
+    <path
+        android:strokeColor="#FF000000"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M41,43L46,47" />
+    <path
+        android:strokeColor="#FF000000"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M67,43L62,47" />
+
+    <!-- Front LED / handle -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M45,72C45,70.3 46.3,69 48,69L60,69C61.7,69 63,70.3 63,72C63,73.7 61.7,75 60,75L48,75C46.3,75 45,73.7 45,72Z" />
+</vector>
