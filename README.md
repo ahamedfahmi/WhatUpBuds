@@ -45,13 +45,14 @@ The base app was written by **Ahamed Fahmi**. AI tools were later used to help
 refactor code, improve documentation, create original icon assets, and fix some
 bugs.
 
+Copyright © 2026 Ahamed Fahmi.
+
 This project is not affiliated with or endorsed by Huawei, Honor, or the
 OpenFreeBuds project.
 
-> OpenFreeBuds is licensed under GPLv3. If OpenFreeBuds source code is copied or
-> adapted into this project, its copyright notices and GPLv3 requirements must
-> be followed. This repository does not currently include its own `LICENSE`
-> file; one should be added before a public release.
+This project is released under the GNU General Public License v3.0. See
+[LICENSE](LICENSE). OpenFreeBuds is also licensed under GPLv3; if its source code
+is copied or adapted, its copyright notices and attribution must be preserved.
 
 ## Current features
 
