@@ -26,7 +26,7 @@ An Android app that shows Huawei FreeBuds battery information in a quiet
 foreground-service notification. The current implementation is intended for
 **HUAWEI FreeBuds SE 2**.
 
-> Current release: **v1.0.0**. Hardware behavior can vary by earbud model,
+> Current release: **v1.0.1**. Hardware behavior can vary by earbud model,
 > phone, and Android version; see [Known limitations](#known-limitations).
 
 ## Protocol credit and authorship
@@ -59,16 +59,17 @@ is copied or adapted, its copyright notices and attribution must be preserved.
   device has connected.
 - Opens an RFCOMM connection using the standard SPP UUID, with channel `1` as a
   fallback.
-- Sends one battery request after connecting, then waits for responses and
-  unsolicited battery updates.
+- Sends a battery request after connecting, accepts unsolicited updates
+  immediately, and uses a 60-second fallback poll when devices push slowly.
 - Displays left, right, and case battery percentages in one quiet notification.
 - Displays charging indicators using the app’s current interpretation of
   parameter `0x03`.
 - Keeps a dismissible *Disconnected* notification after the service stops.
 - Uses a small monochrome notification icon and a separate original adaptive
   launcher icon.
-- Has no widget, account, analytics, internet request, periodic polling loop, or
-  wake lock.
+- Has no widget, account, analytics, internet request, or wake lock. The
+  sleeping fallback poll reuses the existing Bluetooth socket and may be
+  delayed by Android deep sleep.
 
 ## How it works
 
@@ -199,7 +200,9 @@ the runtime permissions required for the current Android version.
 - The battery request and charging-flag interpretation are not identical to
   OpenFreeBuds and need hardware validation.
 - Unsupported earbuds may remain at *Connecting…* briefly or fail the RFCOMM
-  connection.
+  connection. RFCOMM attempts are time-limited, and a successful connection
+  that returns no valid battery packet changes to *No battery data yet* instead
+  of remaining at *Connecting…* indefinitely.
 - There are unit tests for protocol construction, parsing, CRC, and stream
   framing, but no automated Bluetooth hardware tests.
 

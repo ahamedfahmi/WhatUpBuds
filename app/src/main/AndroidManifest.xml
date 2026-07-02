@@ -54,6 +54,11 @@
             <intent-filter>
                 <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
                 <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+                <!-- Profile state changes fire the instant the lid closes, before
+                     the ACL link times out. The system wakes this receiver to
+                     deliver them even if our process was killed. -->
+                <action android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED" />
+                <action android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED" />
             </intent-filter>
         </receiver>
 
