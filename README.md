@@ -1,4 +1,27 @@
+<div align="center">
+
 # What’s Up, Buds?
+
+<img src="app/src/main/ic_launcher-playstore.png" alt="What’s Up, Buds? app icon" width="128" height="128" />
+
+**Quiet, live Huawei FreeBuds battery — right in your notification shade.**
+
+<!-- Badges: replace `your-username/WhatsUpBuds` below with your real GitHub repo path once the project is pushed. -->
+
+[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=your-username.WhatsUpBuds)](https://github.com/your-username/WhatsUpBuds)
+[![Downloads](https://img.shields.io/github/downloads/your-username/WhatsUpBuds/total?color=4c8bf5&label=downloads)](https://github.com/your-username/WhatsUpBuds/releases)
+[![Stars](https://img.shields.io/github/stars/your-username/WhatsUpBuds?color=f5a623)](https://github.com/your-username/WhatsUpBuds/stargazers)
+[![Forks](https://img.shields.io/github/forks/your-username/WhatsUpBuds)](https://github.com/your-username/WhatsUpBuds/network/members)
+[![Issues](https://img.shields.io/github/issues/your-username/WhatsUpBuds)](https://github.com/your-username/WhatsUpBuds/issues)
+
+![Platform](https://img.shields.io/badge/platform-Android-3ddc84?logo=android&logoColor=white)
+![minSdk](https://img.shields.io/badge/minSdk-26-3ddc84)
+![Kotlin](https://img.shields.io/badge/Kotlin-1.9.24-7f52ff?logo=kotlin&logoColor=white)
+![License](https://img.shields.io/badge/license-GPLv3-blue.svg)
+
+</div>
+
+---
 
 An experimental Android app that shows Huawei FreeBuds battery information in a
 quiet foreground-service notification. The current implementation is intended
