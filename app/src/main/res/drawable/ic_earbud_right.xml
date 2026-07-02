@@ -1,0 +1,19 @@
+<!-- Converted from assets/earbud-right.svg (ellipse + stem, tilted +15°). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group
+        android:name="tilt"
+        android:pivotX="12"
+        android:pivotY="8"
+        android:rotation="15">
+        <path
+            android:fillColor="@color/notification_icon_tint"
+            android:pathData="M9.1,7.6a2.9,3.3 0 1,0 5.8,0a2.9,3.3 0 1,0 -5.8,0z" />
+        <path
+            android:fillColor="@color/notification_icon_tint"
+            android:pathData="M12,9h0a1.6,1.6 0 0 1 1.6,1.6v3a1.6,1.6 0 0 1 -1.6,1.6h0a1.6,1.6 0 0 1 -1.6,-1.6v-3a1.6,1.6 0 0 1 1.6,-1.6z" />
+    </group>
+</vector>
