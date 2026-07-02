@@ -6,13 +6,12 @@
 
 **Quiet, live Huawei FreeBuds battery — right in your notification shade.**
 
-<!-- Badges: replace `your-username/WhatsUpBuds` below with your real GitHub repo path once the project is pushed. -->
 
-[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=your-username.WhatsUpBuds)](https://github.com/your-username/WhatsUpBuds)
-[![Downloads](https://img.shields.io/github/downloads/your-username/WhatsUpBuds/total?color=4c8bf5&label=downloads)](https://github.com/your-username/WhatsUpBuds/releases)
-[![Stars](https://img.shields.io/github/stars/your-username/WhatsUpBuds?color=f5a623)](https://github.com/your-username/WhatsUpBuds/stargazers)
-[![Forks](https://img.shields.io/github/forks/your-username/WhatsUpBuds)](https://github.com/your-username/WhatsUpBuds/network/members)
-[![Issues](https://img.shields.io/github/issues/your-username/WhatsUpBuds)](https://github.com/your-username/WhatsUpBuds/issues)
+[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=ahamedfahmi.WhatsUpBuds)](https://github.com/ahamedfahmi/WhatsUpBuds)
+[![Downloads](https://img.shields.io/github/downloads/ahamedfahmi/WhatsUpBuds/total?color=4c8bf5&label=downloads)](https://github.com/ahamedfahmi/WhatsUpBuds/releases)
+[![Stars](https://img.shields.io/github/stars/ahamedfahmi/WhatsUpBuds?color=f5a623)](https://github.com/ahamedfahmi/WhatsUpBuds/stargazers)
+[![Forks](https://img.shields.io/github/forks/ahamedfahmi/WhatsUpBuds)](https://github.com/ahamedfahmi/WhatsUpBuds/network/members)
+[![Issues](https://img.shields.io/github/issues/ahamedfahmi/WhatsUpBuds)](https://github.com/ahamedfahmi/WhatsUpBuds/issues)
 
 ![Platform](https://img.shields.io/badge/platform-Android-3ddc84?logo=android&logoColor=white)
 ![minSdk](https://img.shields.io/badge/minSdk-26-3ddc84)
