@@ -7,11 +7,11 @@
 **Quiet, live Huawei FreeBuds battery — right in your notification shade.**
 
 
-[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=ahamedfahmi.WhatsUpBuds)](https://github.com/ahamedfahmi/WhatsUpBuds)
-[![Downloads](https://img.shields.io/github/downloads/ahamedfahmi/WhatsUpBuds/total?color=4c8bf5&label=downloads)](https://github.com/ahamedfahmi/WhatsUpBuds/releases)
-[![Stars](https://img.shields.io/github/stars/ahamedfahmi/WhatsUpBuds?color=f5a623)](https://github.com/ahamedfahmi/WhatsUpBuds/stargazers)
-[![Forks](https://img.shields.io/github/forks/ahamedfahmi/WhatsUpBuds)](https://github.com/ahamedfahmi/WhatsUpBuds/network/members)
-[![Issues](https://img.shields.io/github/issues/ahamedfahmi/WhatsUpBuds)](https://github.com/ahamedfahmi/WhatsUpBuds/issues)
+[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=ahamedfahmi.WhatUpBuds)](https://github.com/ahamedfahmi/WhatUpBuds)
+[![Downloads](https://img.shields.io/github/downloads/ahamedfahmi/WhatUpBuds/total?color=4c8bf5&label=downloads)](https://github.com/ahamedfahmi/WhatUpBuds/releases)
+[![Stars](https://img.shields.io/github/stars/ahamedfahmi/WhatUpBuds?color=f5a623)](https://github.com/ahamedfahmi/WhatUpBuds/stargazers)
+[![Forks](https://img.shields.io/github/forks/ahamedfahmi/WhatUpBuds)](https://github.com/ahamedfahmi/WhatUpBuds/network/members)
+[![Issues](https://img.shields.io/github/issues/ahamedfahmi/WhatUpBuds)](https://github.com/ahamedfahmi/WhatUpBuds/issues)
 
 ![Platform](https://img.shields.io/badge/platform-Android-3ddc84?logo=android&logoColor=white)
 ![minSdk](https://img.shields.io/badge/minSdk-26-3ddc84)
@@ -22,13 +22,12 @@
 
 ---
 
-An experimental Android app that shows Huawei FreeBuds battery information in a
-quiet foreground-service notification. The current implementation is intended
-for **HUAWEI FreeBuds SE 2**.
+An Android app that shows Huawei FreeBuds battery information in a quiet
+foreground-service notification. The current implementation is intended for
+**HUAWEI FreeBuds SE 2**.
 
-> Status: early and hardware-dependent. The Android project builds and the
-> protocol/framing code has unit tests, but connection behavior and battery
-> fields should still be verified on real FreeBuds SE 2 hardware.
+> Current release: **v1.0.0**. Hardware behavior can vary by earbud model,
+> phone, and Android version; see [Known limitations](#known-limitations).
 
 ## Protocol credit and authorship
 
@@ -244,19 +243,21 @@ Project configuration:
 - Java/JDK: 17
 
 The easiest option is to open the project in Android Studio and select **Run**
-or **Build APK**.
-
-This checkout currently contains `gradle-wrapper.properties`, but not the
-complete wrapper scripts and JAR. If Gradle is installed locally, generate them
-once:
+or **Build APK**. The complete Gradle wrapper is also included:
 
 ```powershell
-gradle wrapper --gradle-version 8.7
 .\gradlew.bat assembleDebug
 .\gradlew.bat test
 ```
 
-On macOS or Linux, use `./gradlew` after generating the wrapper.
+On macOS or Linux, use `./gradlew`.
+
+For a public release, use Android Studio’s **Generate Signed App Bundle or APK**
+flow with your private release keystore. Upload the resulting signed APK to the
+GitHub release; do not publish `app-release-unsigned.apk`, commit the local
+`app/release/` folder, or commit signing credentials.
+
+Release history is available in [CHANGELOG.md](CHANGELOG.md).
 
 ## Project layout
 

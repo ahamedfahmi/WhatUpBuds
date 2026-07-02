@@ -1,5 +1,7 @@
 package com.whatsupbuds
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -9,6 +11,7 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.pm.ServiceInfo
 import android.os.Build
 import android.os.IBinder
@@ -16,6 +19,7 @@ import android.util.Log
 import android.view.View
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import java.io.IOException
 import java.util.UUID
 
@@ -218,6 +222,13 @@ class BudsService : Service() {
 
     /** Insecure-socket reflection fallback (channel 1) for finicky devices. */
     private fun fallbackConnect(device: BluetoothDevice): BluetoothSocket? {
+        if (Build.VERSION.SDK_INT >= 31 &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            Log.w(TAG, "Missing BLUETOOTH_CONNECT for RFCOMM fallback")
+            return null
+        }
         return try {
             val method = device.javaClass.getMethod(
                 "createRfcommSocket", Int::class.javaPrimitiveType
@@ -231,7 +242,16 @@ class BudsService : Service() {
         }
     }
 
+    @SuppressLint("MissingPermission") // Guarded below; lint cannot follow this API split.
     private fun cancelDiscovery() {
+        if (Build.VERSION.SDK_INT >= 31 &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            // Discovery cancellation is only an optimization. Do not request
+            // the broader scan permission solely for this call.
+            return
+        }
         try {
             val bm = getSystemService(BluetoothManager::class.java)
             bm?.adapter?.cancelDiscovery()

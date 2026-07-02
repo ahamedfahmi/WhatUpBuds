@@ -2,6 +2,7 @@
 .gradle/
 .kotlin/
 **/build/
+/app/release/
 
 # Local Android SDK configuration
 local.properties
