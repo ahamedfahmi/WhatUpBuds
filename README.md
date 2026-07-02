@@ -4,7 +4,7 @@
 
 <img src="app/src/main/ic_launcher-playstore.png" alt="What’s Up, Buds? app icon" width="128" height="128" />
 
-**Quiet, live Huawei FreeBuds battery — right in your notification shade.**
+**Quiet, live Huawei FreeBuds battery right in your notification shade.**
 
 
 [![Visitors](https://visitor-badge.laobi.icu/badge?page_id=ahamedfahmi.WhatUpBuds)](https://github.com/ahamedfahmi/WhatUpBuds)
