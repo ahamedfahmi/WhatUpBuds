@@ -16,6 +16,7 @@ import android.bluetooth.BluetoothSocket
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.IntentFilter
+import android.content.res.Configuration
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ServiceInfo
@@ -776,38 +777,55 @@ class BudsService : Service() {
         info: HuaweiProtocol.BatteryInfo,
     ): RemoteViews {
         val expanded = layoutId == R.layout.notification_battery_expanded
+        val dark = isDarkTheme()
         return RemoteViews(packageName, layoutId).apply {
             setTextViewText(R.id.notification_device_name, title)
             // Only the expanded layout carries a status subtitle.
             if (expanded) {
                 setTextViewText(R.id.notification_status, getString(R.string.connected))
             }
-            bindBattery(R.id.notification_left_container, R.id.notification_left_value,
-                R.id.notification_left_charging, info.leftPercent, info.leftCharging, expanded)
-            bindBattery(R.id.notification_right_container, R.id.notification_right_value,
-                R.id.notification_right_charging, info.rightPercent, info.rightCharging, expanded)
-            bindBattery(R.id.notification_case_container, R.id.notification_case_value,
-                R.id.notification_case_charging, info.casePercent, info.caseCharging, expanded)
+            bindBattery(R.id.notification_left_value, R.id.notification_left_wave,
+                info.leftPercent, info.leftCharging, expanded, dark)
+            bindBattery(R.id.notification_right_value, R.id.notification_right_wave,
+                info.rightPercent, info.rightCharging, expanded, dark)
+            bindBattery(R.id.notification_case_value, R.id.notification_case_wave,
+                info.casePercent, info.caseCharging, expanded, dark)
         }
     }
 
     private fun RemoteViews.bindBattery(
-        containerViewId: Int,
         valueViewId: Int,
-        chargingViewId: Int,
+        waveViewId: Int,
         percent: Int,
         charging: Boolean,
         expanded: Boolean,
+        dark: Boolean,
     ) {
-        val value = if (percent in 0..100) "$percent%" else getString(R.string.na)
-        setTextViewText(valueViewId, value)
-        setInt(
-            containerViewId,
-            "setBackgroundResource",
-            batteryPillBackground(percent, expanded),
-        )
-        setViewVisibility(chargingViewId, if (charging) View.VISIBLE else View.GONE)
+        setTextViewText(valueViewId, if (percent in 0..100) "$percent%" else getString(R.string.na))
+
+        if (percent in 0..100) {
+            // Bitmap dimensions are logical; the ImageView (fitXY) scales them to
+            // the real pill/card. Corner radius is kept proportional to height.
+            val (w, h, radiusFraction) = if (expanded) {
+                Triple(240, 150, 0.1875f) // 18dp on a 96dp card
+            } else {
+                Triple(260, 100, 0.31f)   // ~10dp on a 32dp pill (rounded rectangle)
+            }
+            setViewVisibility(waveViewId, View.VISIBLE)
+            setImageViewBitmap(
+                waveViewId,
+                WaveRenderer.render(
+                    w, h, percent, charging, dark, h * radiusFraction, compact = !expanded,
+                ),
+            )
+        } else {
+            setViewVisibility(waveViewId, View.GONE)
+        }
     }
+
+    private fun isDarkTheme(): Boolean =
+        (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+            Configuration.UI_MODE_NIGHT_YES
 
     private fun showDisconnected() {
         postDismissible(currentDeviceName(), getString(R.string.disconnected))
@@ -906,11 +924,4 @@ class BudsService : Service() {
      * healthy, amber at or below 30%, red at or below 15%. An unknown reading
      * (percent out of 0..100) stays neutral.
      */
-    private fun batteryPillBackground(percent: Int, expanded: Boolean): Int {
-        return when (percent) {
-            in 0..15 -> if (expanded) R.drawable.bg_battery_card_low else R.drawable.bg_battery_pill_low
-            in 16..30 -> if (expanded) R.drawable.bg_battery_card_medium else R.drawable.bg_battery_pill_medium
-            else -> if (expanded) R.drawable.bg_battery_card else R.drawable.bg_battery_pill
-        }
-    }
 }

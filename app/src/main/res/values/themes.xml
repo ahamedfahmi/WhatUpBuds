@@ -11,10 +11,18 @@
         <item name="android:textSize">13sp</item>
     </style>
 
-    <!-- Collapsed pill percentage: bold, primary color. -->
+    <!-- Collapsed pill percentage: compact, bold, primary. -->
     <style name="NotificationBatteryPillText" parent="@style/TextAppearance.Compat.Notification.Title">
         <item name="android:includeFontPadding">false</item>
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Collapsed pill label (LEFT / RIGHT / CASE): tiny, muted, tracked. -->
+    <style name="NotificationBatteryPillLabel" parent="@style/TextAppearance.Compat.Notification">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <!-- Expanded card label (LEFT / RIGHT / CASE): small, muted, tracked. -->

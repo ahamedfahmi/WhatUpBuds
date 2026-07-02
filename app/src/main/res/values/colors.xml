@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="battery_medium_background">#FFE3BA</color>
-    <color name="battery_low_background">#FFD6D6</color>
     <!-- Soft neutral gray for healthy pills/cards (day). -->
     <color name="battery_pill_background">#E9E9EB</color>
     <!-- Charging-bolt / adaptive icon tint (day: near-black). -->

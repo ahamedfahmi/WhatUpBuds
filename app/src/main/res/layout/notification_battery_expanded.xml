@@ -29,153 +29,138 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/notification_left_container"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="96dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_battery_card"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp">
+            android:background="@drawable/bg_battery_card">
 
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:contentDescription="@string/left_bud"
-                android:src="@drawable/ic_earbud_left" />
+                android:id="@+id/notification_left_wave"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@string/left_bud"
+                    android:src="@drawable/ic_earbud_left" />
 
                 <TextView
                     android:id="@+id/notification_left_value"
                     style="@style/NotificationBatteryExpandedValue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" />
 
-                <ImageView
-                    android:id="@+id/notification_left_charging"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="4dp"
-                    android:contentDescription="@string/charging"
-                    android:src="@drawable/ic_bolt"
-                    android:visibility="gone" />
+                <TextView
+                    style="@style/NotificationBatteryExpandedLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/left_bud" />
             </LinearLayout>
+        </FrameLayout>
 
-            <TextView
-                style="@style/NotificationBatteryExpandedLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/left_bud" />
-        </LinearLayout>
-
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/notification_right_container"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="96dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_battery_card"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp">
+            android:background="@drawable/bg_battery_card">
 
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:contentDescription="@string/right_bud"
-                android:src="@drawable/ic_earbud_right" />
+                android:id="@+id/notification_right_wave"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@string/right_bud"
+                    android:src="@drawable/ic_earbud_right" />
 
                 <TextView
                     android:id="@+id/notification_right_value"
                     style="@style/NotificationBatteryExpandedValue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" />
 
-                <ImageView
-                    android:id="@+id/notification_right_charging"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="4dp"
-                    android:contentDescription="@string/charging"
-                    android:src="@drawable/ic_bolt"
-                    android:visibility="gone" />
+                <TextView
+                    style="@style/NotificationBatteryExpandedLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/right_bud" />
             </LinearLayout>
+        </FrameLayout>
 
-            <TextView
-                style="@style/NotificationBatteryExpandedLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/right_bud" />
-        </LinearLayout>
-
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/notification_case_container"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="96dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_battery_card"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp">
+            android:background="@drawable/bg_battery_card">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:contentDescription="@string/case_label"
-                android:src="@drawable/ic_case" />
+                android:id="@+id/notification_case_wave"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/case_label"
+                    android:src="@drawable/ic_case" />
 
                 <TextView
                     android:id="@+id/notification_case_value"
                     style="@style/NotificationBatteryExpandedValue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" />
 
-                <ImageView
-                    android:id="@+id/notification_case_charging"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="4dp"
-                    android:contentDescription="@string/charging"
-                    android:src="@drawable/ic_bolt"
-                    android:visibility="gone" />
+                <TextView
+                    style="@style/NotificationBatteryExpandedLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/case_label" />
             </LinearLayout>
-
-            <TextView
-                style="@style/NotificationBatteryExpandedLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/case_label" />
-        </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 </LinearLayout>

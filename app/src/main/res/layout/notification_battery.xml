@@ -2,8 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="48dp"
-    android:gravity="center_vertical"
     android:orientation="vertical">
 
     <TextView
@@ -17,115 +15,127 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:gravity="center_vertical"
+        android:layout_marginTop="6dp"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <!-- Collapsed pill: icon + % only, on one line. The distinct
+             left/right/case icons make the label unnecessary here, and dropping
+             it stops the percentage from wrapping in the narrow collapsed width.
+             The full LEFT/RIGHT/CASE labels live in the expanded layout. -->
+        <FrameLayout
             android:id="@+id/notification_left_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
             android:layout_marginEnd="6dp"
-            android:background="@drawable/bg_battery_pill"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="9dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="11dp"
-            android:paddingBottom="4dp">
+            android:layout_weight="1"
+            android:background="@drawable/bg_battery_pill">
 
             <ImageView
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:contentDescription="@string/left_bud"
-                android:src="@drawable/ic_earbud_left" />
+                android:id="@+id/notification_left_wave"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
-            <TextView
-                android:id="@+id/notification_left_value"
-                style="@style/NotificationBatteryPillText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="6dp"
+                android:paddingEnd="8dp">
 
-            <ImageView
-                android:id="@+id/notification_left_charging"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_marginStart="3dp"
-                android:contentDescription="@string/charging"
-                android:src="@drawable/ic_bolt"
-                android:visibility="gone" />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:contentDescription="@string/left_bud"
+                    android:src="@drawable/ic_earbud_left" />
 
-        <LinearLayout
+                <TextView
+                    android:id="@+id/notification_left_value"
+                    style="@style/NotificationBatteryPillText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/notification_right_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
             android:layout_marginEnd="6dp"
-            android:background="@drawable/bg_battery_pill"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="9dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="11dp"
-            android:paddingBottom="4dp">
+            android:layout_weight="1"
+            android:background="@drawable/bg_battery_pill">
 
             <ImageView
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:contentDescription="@string/right_bud"
-                android:src="@drawable/ic_earbud_right" />
+                android:id="@+id/notification_right_wave"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
-            <TextView
-                android:id="@+id/notification_right_value"
-                style="@style/NotificationBatteryPillText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="6dp"
+                android:paddingEnd="8dp">
 
-            <ImageView
-                android:id="@+id/notification_right_charging"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_marginStart="3dp"
-                android:contentDescription="@string/charging"
-                android:src="@drawable/ic_bolt"
-                android:visibility="gone" />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:contentDescription="@string/right_bud"
+                    android:src="@drawable/ic_earbud_right" />
 
-        <LinearLayout
+                <TextView
+                    android:id="@+id/notification_right_value"
+                    style="@style/NotificationBatteryPillText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/notification_case_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_battery_pill"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="9dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="11dp"
-            android:paddingBottom="4dp">
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_battery_pill">
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:contentDescription="@string/case_label"
-                android:src="@drawable/ic_case" />
+                android:id="@+id/notification_case_wave"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
-            <TextView
-                android:id="@+id/notification_case_value"
-                style="@style/NotificationBatteryPillText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="6dp"
+                android:paddingEnd="8dp">
 
-            <ImageView
-                android:id="@+id/notification_case_charging"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_marginStart="3dp"
-                android:contentDescription="@string/charging"
-                android:src="@drawable/ic_bolt"
-                android:visibility="gone" />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="11dp"
+                    android:layout_height="11dp"
+                    android:layout_marginEnd="4dp"
+                    android:contentDescription="@string/case_label"
+                    android:src="@drawable/ic_case" />
+
+                <TextView
+                    android:id="@+id/notification_case_value"
+                    style="@style/NotificationBatteryPillText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1" />
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 </LinearLayout>
