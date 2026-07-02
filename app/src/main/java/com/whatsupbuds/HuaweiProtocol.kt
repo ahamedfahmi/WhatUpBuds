@@ -59,8 +59,18 @@ object HuaweiProtocol {
         return out
     }
 
-    /** Battery request: command 0x0108, no parameters. */
-    fun buildBatteryRequest(): ByteArray = buildPacket(CMD_BATTERY)
+    /**
+     * Battery request: command 0x0108. Unlike a bare request, we send three
+     * empty TLVs (types 1, 2, 3) asking the device to report each field. This
+     * matches OpenFreeBuds' proven request — a paramless 0x0108 is ignored by
+     * FreeBuds SE 2, which leaves the read loop waiting forever.
+     *
+     * Encodes to: 5A 00 09 00 01 08  01 00 02 00 03 00  <crc16>
+     */
+    fun buildBatteryRequest(): ByteArray = buildPacket(
+        CMD_BATTERY,
+        byteArrayOf(0x01, 0x00, 0x02, 0x00, 0x03, 0x00),
+    )
 
     /** Command ID of a received packet, or null if too short. */
     fun commandIdOf(packet: ByteArray): Int? {

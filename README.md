@@ -132,11 +132,16 @@ mismatches are logged, but the current service still attempts a lenient parse.
 - Visibility is `PUBLIC`, allowing the status to appear on the lock screen.
 - The title uses the complete Bluetooth device name reported by Android. It is
   not shortened or hardcoded to a particular Huawei model.
-- Each percentage uses the normal notification text color at 50–100%, orange
-  at 21–49%, and red at 0–20%. Theme-specific warning shades keep the text
-  readable in light and dark mode. A ⚡ is added while charging.
+- Notification text always uses Android's normal text color. The pill or card
+  background stays neutral at 50–100%, turns orange at 21–49%, and red at
+  0–20%. Theme-specific warning shades remain readable in light and dark mode.
+  A ⚡ is added while charging.
 - Battery readings use Android's decorated custom notification content so OEM
   system templates cannot discard the individual percentage colors.
+- The battery row uses three content-sized rounded pills for the left bud,
+  right bud, and charging case, with consistent internal spacing.
+- Expanding the notification switches to three larger, equal-width cards with
+  full `Left`, `Right`, and `Case` labels and prominent battery values.
 - Example body: `L 82%  ·  R 39% ⚡  ·  Case 15%`.
 - Tapping the notification opens the app’s permission/status screen.
 - The compact system template is used without an expandable big-text layout,
@@ -146,6 +151,9 @@ mismatches are logged, but the current service still attempts a lenient parse.
 - The notification is ongoing while connected.
 - After disconnecting, the service stops and leaves a dismissible
   *Disconnected* notification.
+- The last connected Bluetooth device name is stored locally so the
+  disconnected notification keeps the same name. A later connection replaces
+  it with that device's current Bluetooth name.
 - Android’s required small status icon is used; no large product image is added
   to the notification.
 

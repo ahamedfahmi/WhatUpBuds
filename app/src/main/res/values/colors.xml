@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#000000</color>
-    <color name="battery_medium">#B95000</color>
-    <color name="battery_low">#C62828</color>
+    <color name="battery_medium_background">#FFE3BA</color>
+    <color name="battery_low_background">#FFD6D6</color>
+    <!-- Soft neutral gray for healthy pills/cards (day). -->
+    <color name="battery_pill_background">#E9E9EB</color>
+    <!-- Charging-bolt / adaptive icon tint (day: near-black). -->
+    <color name="notification_icon_tint">#202124</color>
 </resources>

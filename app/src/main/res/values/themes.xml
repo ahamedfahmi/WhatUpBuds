@@ -1,3 +1,33 @@
 <resources>
     <style name="AppTheme" parent="@android:style/Theme.Material.Light.NoActionBar" />
+
+    <style name="NotificationBatteryTitle" parent="@style/TextAppearance.Compat.Notification.Title">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="NotificationBatteryStatus" parent="@style/TextAppearance.Compat.Notification">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Collapsed pill percentage: bold, primary color. -->
+    <style name="NotificationBatteryPillText" parent="@style/TextAppearance.Compat.Notification.Title">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Expanded card label (LEFT / RIGHT / CASE): small, muted, tracked. -->
+    <style name="NotificationBatteryExpandedLabel" parent="@style/TextAppearance.Compat.Notification">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Expanded card percentage: large, bold, primary. -->
+    <style name="NotificationBatteryExpandedValue" parent="@style/TextAppearance.Compat.Notification.Title">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

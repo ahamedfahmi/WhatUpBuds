@@ -14,14 +14,19 @@ class ProtocolTest {
     @Test
     fun batteryRequest_hasCorrectFraming() {
         val pkt = HuaweiProtocol.buildBatteryRequest()
-        // 0x5A + len(2) + 0x00 + cmd(2) + crc(2) = 8 bytes, no params.
-        assertEquals(8, pkt.size)
+        // 0x5A + len(2) + 0x00 + cmd(2) + params(6) + crc(2) = 14 bytes.
+        // Params are three empty TLVs: 01 00 02 00 03 00.
+        assertEquals(14, pkt.size)
         assertEquals(0x5A.toByte(), pkt[0])
         assertEquals(0x00.toByte(), pkt[1]) // dataLen high
-        assertEquals(0x03.toByte(), pkt[2]) // dataLen low = params(0) + 3
+        assertEquals(0x09.toByte(), pkt[2]) // dataLen low = params(6) + 3
         assertEquals(0x00.toByte(), pkt[3])
         assertEquals(0x01.toByte(), pkt[4]) // cmd high
         assertEquals(0x08.toByte(), pkt[5]) // cmd low
+        assertArrayEquals(
+            byteArrayOf(0x01, 0x00, 0x02, 0x00, 0x03, 0x00),
+            pkt.copyOfRange(6, 12),
+        )
         assertTrue(HuaweiProtocol.verifyCrc(pkt))
     }
 
